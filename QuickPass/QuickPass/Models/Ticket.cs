@@ -1,16 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations; 
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace QuickPass.Models
 {
     public class Ticket
     {
         [Key]
         public int TicketId { get; set; }
-        
+
         public decimal Price { get; set; }
 
         public int SeatNumber { get; set; }
 
         public DateTime BookingDate { get; set; }
+
+        ////User AccountId FK
+        [ForeignKey("Account")]
+        public int AccountId { get; set; }
+        public virtual Account Account { get; set; }
+
+        [ForeignKey("Event")]
+        public int EventId { get; set; }
+        public virtual Event Event { get; set; }
+
 
 
     }
