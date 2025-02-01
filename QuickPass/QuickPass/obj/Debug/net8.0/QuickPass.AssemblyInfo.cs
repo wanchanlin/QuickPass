@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuickPass")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b9e056d59af5521afe9b62b927806c2b0a2e4cc7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+28a0fe9bbc0e33f2fb59835fdda4d35f71b8bcad")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuickPass")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuickPass")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
