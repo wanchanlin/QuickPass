@@ -10,7 +10,7 @@ namespace QuickPass.Models
 
         public decimal Price { get; set; }
 
-        public int SeatNumber { get; set; }
+        public string SeatNumber { get; set; }
 
         public DateTime BookingDate { get; set; }
 
