@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace QuickPass.Models
 {
@@ -16,14 +17,9 @@ namespace QuickPass.Models
 
         ////User AccountId FK
         [ForeignKey("Account")]
+
+        [JsonIgnore]
         public int AccountId { get; set; }
-        public virtual Account Account { get; set; }
-
-        [ForeignKey("Event")]
-        public int EventId { get; set; }
-        public virtual Event Event { get; set; }
-
-
-
+        //public virtual Account Account { get; set; }
     }
 }

@@ -12,11 +12,11 @@ using System;
 using System.Reflection;
 
 [assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-QuickPass-70ffe2ec-0780-4057-8385-f0438ae3847e")]
+[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-QuickPass-9a13a978-faa3-4f61-8ccc-81cbaa391d27")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("QuickPass")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13fb47aca893872adf9582441b844e0b0202673c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+aadee39ca8779859e158278a9fbe8398698c71d6")]
 [assembly: System.Reflection.AssemblyProductAttribute("QuickPass")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QuickPass")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
