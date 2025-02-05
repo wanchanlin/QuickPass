@@ -10,16 +10,12 @@ namespace QuickPass.Data
             : base(options)
         {
         }
-
         //create a Accounts table from the model
         public DbSet<Account> Accounts { get; set; }
-        //create a Tickets table from the model
-
+        //create a ticket table for the model
         public DbSet<Ticket> Tickets { get; set; }
 
         //create an Events table from the model
-
         public DbSet<Event> Events { get; set; }
     }
 }
-
