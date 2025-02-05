@@ -25,7 +25,10 @@ namespace QuickPass.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ticket>>> GetTickets()
         {
-            return await _context.Tickets.ToListAsync();
+            return await _context.Tickets
+                //.Include(t=> t.Account)
+                //.Include(t=> t.Event)
+                .ToListAsync();
         }
 
         // GET: api/Tickets/5
