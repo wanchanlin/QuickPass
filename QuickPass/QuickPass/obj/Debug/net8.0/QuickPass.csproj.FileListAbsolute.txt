@@ -151,3 +151,9 @@ D:\Humber College\QuickPass\QuickPass\QuickPass\obj\Debug\net8.0\refint\QuickPas
 D:\Humber College\QuickPass\QuickPass\QuickPass\obj\Debug\net8.0\QuickPass.pdb
 D:\Humber College\QuickPass\QuickPass\QuickPass\obj\Debug\net8.0\QuickPass.genruntimeconfig.cache
 D:\Humber College\QuickPass\QuickPass\QuickPass\obj\Debug\net8.0\ref\QuickPass.dll
+D:\Humber College\QuickPass\QuickPass\QuickPass\bin\Debug\net8.0\Microsoft.Extensions.PlatformAbstractions.dll
+D:\Humber College\QuickPass\QuickPass\QuickPass\bin\Debug\net8.0\Microsoft.OpenApi.dll
+D:\Humber College\QuickPass\QuickPass\QuickPass\bin\Debug\net8.0\Swashbuckle.SwaggerUi.dll
+D:\Humber College\QuickPass\QuickPass\QuickPass\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Humber College\QuickPass\QuickPass\QuickPass\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Humber College\QuickPass\QuickPass\QuickPass\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
