@@ -22,6 +22,21 @@ namespace QuickPass.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AccountEvent", b =>
+                {
+                    b.Property<int>("AccountsAccountId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventsEventId")
+                        .HasColumnType("int");
+
+                    b.HasKey("AccountsAccountId", "EventsEventId");
+
+                    b.HasIndex("EventsEventId");
+
+                    b.ToTable("AccountEvent");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -248,6 +263,9 @@ namespace QuickPass.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TicektID")
+                        .HasColumnType("int");
+
                     b.HasKey("AccountId");
 
                     b.ToTable("Accounts");
@@ -272,6 +290,9 @@ namespace QuickPass.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("TicektID")
+                        .HasColumnType("int");
+
                     b.Property<int>("TotalTickets")
                         .HasColumnType("int");
 
@@ -288,8 +309,14 @@ namespace QuickPass.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TicketId"));
 
+                    b.Property<int>("AccountId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("BookingDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
@@ -301,6 +328,21 @@ namespace QuickPass.Data.Migrations
                     b.HasKey("TicketId");
 
                     b.ToTable("Tickets");
+                });
+
+            modelBuilder.Entity("AccountEvent", b =>
+                {
+                    b.HasOne("QuickPass.Models.Account", null)
+                        .WithMany()
+                        .HasForeignKey("AccountsAccountId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuickPass.Models.Event", null)
+                        .WithMany()
+                        .HasForeignKey("EventsEventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

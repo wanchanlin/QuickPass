@@ -60,7 +60,11 @@ namespace QuickPass.Models
         public int TotalTickets { get; set; }
 
 
-        public ICollection<Ticket> Tickets { get; set; }
+        public ICollection<Account> Accounts { get; set; }
+
+        //[JsonIgnore]
+        public int TicektID { get; set; }
+        //public ICollection<Ticket> Tickets { get; set; }
 
 
         // // one events is related to many accounts

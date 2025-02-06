@@ -17,7 +17,7 @@ namespace QuickPass.Models
         // one account can have many events
         public ICollection<Event> Events { get; set; }
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public int TicektID { get; set; }
 
 
