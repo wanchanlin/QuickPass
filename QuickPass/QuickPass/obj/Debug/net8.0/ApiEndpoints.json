@@ -109,6 +109,48 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "QuickPass.Controllers.AccountsController",
+    "Method": "LinkEvent",
+    "RelativePath": "api/Accounts/LinkEvent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "eventId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickPass.Controllers.AccountsController",
+    "Method": "UnlinkEvent",
+    "RelativePath": "api/Accounts/UnlinkEvent",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "accountId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "eventId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "QuickPass.Controllers.EventsController",
     "Method": "GetEvents",
     "RelativePath": "api/Events",
