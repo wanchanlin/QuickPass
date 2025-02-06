@@ -18,8 +18,14 @@ namespace QuickPass.Models
         ////User AccountId FK
         [ForeignKey("Account")]
 
-        [JsonIgnore]
+        //[JsonIgnore]
         public int AccountId { get; set; }
+        //public virtual Account Account { get; set; }
+
+        [ForeignKey("Event")]
+
+        //[JsonIgnore]
+        public int EventId { get; set; }
         //public virtual Account Account { get; set; }
     }
 }
