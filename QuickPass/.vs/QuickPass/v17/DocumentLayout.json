@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "D:\\Humber College\\QuickPass\\QuickPass\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +31,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "EventsController.cs",
-              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\EventsController.cs",
-              "RelativeDocumentMoniker": "QuickPass\\Controllers\\EventsController.cs",
-              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\EventsController.cs",
-              "RelativeToolTip": "QuickPass\\Controllers\\EventsController.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAxwBgAAAAMAAAAAAAAAA==",
+              "Title": "TicketsController.cs",
+              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\TicketsController.cs",
+              "RelativeDocumentMoniker": "QuickPass\\Controllers\\TicketsController.cs",
+              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\TicketsController.cs",
+              "RelativeToolTip": "QuickPass\\Controllers\\TicketsController.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAYwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T02:47:19.488Z",
+              "WhenOpened": "2025-02-07T22:26:48.732Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "QuickPass\\Models\\Account.cs",
+              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Models\\Account.cs",
+              "RelativeToolTip": "QuickPass\\Models\\Account.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T22:16:55.582Z",
               "EditorCaption": ""
             },
             {
@@ -41,9 +62,22 @@
               "RelativeDocumentMoniker": "QuickPass\\Controllers\\AccountsController.cs",
               "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\AccountsController.cs",
               "RelativeToolTip": "QuickPass\\Controllers\\AccountsController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAwwMAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T02:47:14.386Z",
+              "WhenOpened": "2025-02-07T21:56:47.218Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EventsController.cs",
+              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\EventsController.cs",
+              "RelativeDocumentMoniker": "QuickPass\\Controllers\\EventsController.cs",
+              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\EventsController.cs",
+              "RelativeToolTip": "QuickPass\\Controllers\\EventsController.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAwwMIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T21:44:41.875Z",
               "EditorCaption": ""
             }
           ]

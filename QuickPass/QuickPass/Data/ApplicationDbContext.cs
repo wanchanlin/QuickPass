@@ -17,5 +17,7 @@ namespace QuickPass.Data
 
         //create an Events table from the model
         public DbSet<Event> Events { get; set; }
+
+
     }
 }

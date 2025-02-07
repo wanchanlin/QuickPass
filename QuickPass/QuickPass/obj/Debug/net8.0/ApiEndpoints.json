@@ -110,45 +110,23 @@
   },
   {
     "ContainingType": "QuickPass.Controllers.AccountsController",
-    "Method": "LinkEvent",
-    "RelativePath": "api/Accounts/LinkEvent",
-    "HttpMethod": "POST",
+    "Method": "GetAccountsDTO",
+    "RelativePath": "api/Accounts/DTO",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [
+    "Parameters": [],
+    "ReturnTypes": [
       {
-        "Name": "accountId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "eventId",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QuickPass.Models.Account, QuickPass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
       }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "QuickPass.Controllers.AccountsController",
-    "Method": "UnlinkEvent",
-    "RelativePath": "api/Accounts/UnlinkEvent",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "accountId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "eventId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
+    ]
   },
   {
     "ContainingType": "QuickPass.Controllers.EventsController",
@@ -258,6 +236,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "QuickPass.Controllers.EventsController",
+    "Method": "ListEventsDTO",
+    "RelativePath": "api/Events/ListEventsDTO",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QuickPass.Models.Event, QuickPass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "QuickPass.Controllers.TicketsController",
