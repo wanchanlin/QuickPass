@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
 
 namespace QuickPass.Models
@@ -13,14 +12,10 @@ namespace QuickPass.Models
         public required string Email { get; set; }
         public string Password { get; set; }
 
-
-        // one account can have many events
-        public ICollection<Event> Events { get; set; }
-
-        //[JsonIgnore]
-        public int TicektID { get; set; }
-
+        public ICollection<Ticket> Tickets { get; set; }
 
 
     }
+
+
 }

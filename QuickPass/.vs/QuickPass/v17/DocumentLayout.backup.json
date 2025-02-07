@@ -3,19 +3,16 @@
   "WorkspaceRootPath": "D:\\Humber College\\QuickPass\\QuickPass\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\ticketscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\eventscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\models\\ticket.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FBFB7C10-B37E-493C-8455-A651802A2FB2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\controllers\\accountscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyApp_QuickPass_V2/True/SqlTable/dbo.Accounts.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|d:\\humber college\\quickpass\\quickpass\\quickpass\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1011D72D-1FB8-4EDB-8303-A5FF030B1EF2}|QuickPass\\QuickPass.csproj|solutionrelative:quickpass\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,55 +22,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TicketsController.cs",
-              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\TicketsController.cs",
-              "RelativeDocumentMoniker": "QuickPass\\Controllers\\TicketsController.cs",
-              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\TicketsController.cs",
-              "RelativeToolTip": "QuickPass\\Controllers\\TicketsController.cs",
-              "ViewState": "AgIAAGMAAAAAAAAAAAAuwGgAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T01:35:18.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AccountsController.cs",
-              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\AccountsController.cs",
-              "RelativeDocumentMoniker": "QuickPass\\Controllers\\AccountsController.cs",
-              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\AccountsController.cs",
-              "RelativeToolTip": "QuickPass\\Controllers\\AccountsController.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAkwK4AAAAJAAAAAAAAAA==",
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "QuickPass\\Models\\Account.cs",
+              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Models\\Account.cs*",
+              "RelativeToolTip": "QuickPass\\Models\\Account.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T01:34:43.903Z",
+              "WhenOpened": "2025-02-07T22:16:55.582Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Ticket.cs",
-              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Models\\Ticket.cs",
-              "RelativeDocumentMoniker": "QuickPass\\Models\\Ticket.cs",
-              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Models\\Ticket.cs",
-              "RelativeToolTip": "QuickPass\\Models\\Ticket.cs",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AccountsController.cs",
+              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\AccountsController.cs",
+              "RelativeDocumentMoniker": "QuickPass\\Controllers\\AccountsController.cs",
+              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\AccountsController.cs",
+              "RelativeToolTip": "QuickPass\\Controllers\\AccountsController.cs",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAowKcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T01:30:52.147Z",
+              "WhenOpened": "2025-02-07T21:56:47.218Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "dbo.Accounts.sql",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyApp_QuickPass_V2/True/SqlTable/dbo.Accounts.sql",
-              "ToolTip": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MyApp_QuickPass_V2/True/SqlTable/dbo.Accounts.sql",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-02-05T19:14:53.41Z"
+              "DocumentIndex": 0,
+              "Title": "EventsController.cs",
+              "DocumentMoniker": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\EventsController.cs",
+              "RelativeDocumentMoniker": "QuickPass\\Controllers\\EventsController.cs",
+              "ToolTip": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\Controllers\\EventsController.cs",
+              "RelativeToolTip": "QuickPass\\Controllers\\EventsController.cs",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAwwMIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-07T21:44:41.875Z",
+              "EditorCaption": ""
             }
           ]
         }

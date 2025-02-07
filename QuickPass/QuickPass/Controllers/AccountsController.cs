@@ -16,26 +16,34 @@ namespace QuickPass.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        /// <summary>
+        /// Constructor to initialize the database context.
+        /// </summary>
+        /// <param name="context">Application database context.</param>
         public AccountsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         /// <summary>
-        /// Retrieves all accounts from the database
+        /// Retrieves all accounts from the database.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A list of all accounts.</returns>
+        /// <response code="200">Returns the list of accounts.</response>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
         {
-            return await _context.Accounts.ToListAsync();
+            return Ok(await _context.Accounts.ToListAsync());
         }
 
         /// <summary>
-        /// Retrieves a specific account by ID
+        /// Retrieves a specific account by ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The unique identifier of the account.</param>
+        /// <returns>Returns the account details or 404 Not Found if the account does not exist.</returns>
+        /// <response code="200">Returns the requested account.</response>
+        /// <response code="404">Account not found.</response>
+        /// <example>GET: api/accounts/5</example>
         [HttpGet("{id}")]
         public async Task<ActionResult<Account>> GetAccount(int id)
         {
@@ -43,24 +51,66 @@ namespace QuickPass.Controllers
 
             if (account == null)
             {
-                return NotFound();
+                return NotFound("Account not found.");
             }
 
-            return account;
+            return Ok(account);
         }
 
         /// <summary>
-        /// Updates a specific account by ID
+        /// Retrieves a list of accounts with their related ticket details.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="account"></param>
-        /// <returns></returns>
+        /// <returns>A list of accounts including ticket information.</returns>
+        /// <response code="200">Returns a list of accounts with ticket details.</response>
+        /// <example>GET: api/accounts/DTO</example>
+        [HttpGet(template: "DTO")]
+        public async Task<ActionResult<IEnumerable<Account>>> GetAccountsDTO()
+        {
+            var accounts = await _context.Accounts
+                .Include(a => a.Tickets)
+                .ThenInclude(t => t.Event)
+                .ToListAsync();
+
+            if (accounts == null || !accounts.Any())
+            {
+                return NotFound("No accounts found.");
+            }
+
+            var accountDtos = accounts.Select(account => new Account
+            {
+                AccountId = account.AccountId,
+                FirstName = account.FirstName,
+                LastName = account.LastName,
+                Email = account.Email,
+                Tickets = account.Tickets.Select(ticket => new Ticket
+                {
+                    TicketId = ticket.TicketId,
+                    Price = ticket.Price,
+                    SeatNumber = ticket.SeatNumber,
+                    BookingDate = ticket.BookingDate,
+                    EventId = ticket.EventId,
+                }).ToList()
+            }).ToList();
+
+            return Ok(accountDtos);
+        }
+
+        /// <summary>
+        /// Updates a specific account by ID.
+        /// </summary>
+        /// <param name="id">The ID of the account to update.</param>
+        /// <param name="account">The updated account object.</param>
+        /// <returns>Returns 204 No Content if successful, 400 Bad Request if the IDs do not match, or 404 Not Found if the account does not exist.</returns>
+        /// <response code="204">Account updated successfully.</response>
+        /// <response code="400">Bad request, account ID mismatch.</response>
+        /// <response code="404">Account not found.</response>
+        /// <example>PUT: api/accounts/5</example>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAccount(int id, Account account)
         {
             if (id != account.AccountId)
             {
-                return BadRequest();
+                return BadRequest("Account ID mismatch.");
             }
 
             _context.Entry(account).State = EntityState.Modified;
@@ -73,7 +123,7 @@ namespace QuickPass.Controllers
             {
                 if (!AccountExists(id))
                 {
-                    return NotFound();
+                    return NotFound("Account not found.");
                 }
                 else
                 {
@@ -85,13 +135,21 @@ namespace QuickPass.Controllers
         }
 
         /// <summary>
-        ///  Creates a new account
+        /// Creates a new account.
         /// </summary>
-        /// <param name="account"></param>
-        /// <returns></returns>
+        /// <param name="account">The account object to be created.</param>
+        /// <returns>Returns the created account with a 201 Created status.</returns>
+        /// <response code="201">Account created successfully.</response>
+        /// <response code="400">Bad request, invalid input.</response>
+        /// <example>POST: api/accounts</example>
         [HttpPost]
         public async Task<ActionResult<Account>> PostAccount(Account account)
         {
+            if (account == null)
+            {
+                return BadRequest("Invalid account data.");
+            }
+
             _context.Accounts.Add(account);
             await _context.SaveChangesAsync();
 
@@ -99,17 +157,20 @@ namespace QuickPass.Controllers
         }
 
         /// <summary>
-        ///  Deletes a specific account by ID
+        /// Deletes a specific account by ID.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The ID of the account to delete.</param>
+        /// <returns>Returns 204 No Content if successful, or 404 Not Found if the account does not exist.</returns>
+        /// <response code="204">Account deleted successfully.</response>
+        /// <response code="404">Account not found.</response>
+        /// <example>DELETE: api/accounts/5</example>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAccount(int id)
         {
             var account = await _context.Accounts.FindAsync(id);
             if (account == null)
             {
-                return NotFound();
+                return NotFound("Account not found.");
             }
 
             _context.Accounts.Remove(account);
@@ -118,94 +179,11 @@ namespace QuickPass.Controllers
             return NoContent();
         }
 
-
         /// <summary>
-        /// Links an event to an account and creates a ticket for the event
+        /// Checks if an account exists by ID.
         /// </summary>
-        /// <param name="accountId"></param>
-        /// <param name="eventId"></param>
-        /// <returns></returns>
-        [HttpPost("LinkEvent")]
-        public async Task<IActionResult> LinkEvent(int accountId, int eventId)
-        {
-            var account = await _context.Accounts
-                .Include(a => a.Events)
-                .FirstOrDefaultAsync(a => a.AccountId == accountId);
-            if (account == null)
-            {
-                return NotFound();
-            }
-
-            var eventEntity = await _context.Events.FindAsync(eventId);
-            if (eventEntity == null)
-            {
-                return NotFound();
-            }
-
-            if (!account.Events.Contains(eventEntity))
-            {
-                account.Events.Add(eventEntity);
-
-                // Create a new ticket for the account and event
-                var ticket = new Ticket
-                {
-                    AccountId = accountId,
-                    EventId = eventId,
-                    Price = 0, // Set the appropriate price
-                    SeatNumber = "N/A", // Set the appropriate seat number
-                    BookingDate = DateTime.Now
-                };
-                _context.Tickets.Add(ticket);
-
-                await _context.SaveChangesAsync();
-            }
-
-            return NoContent();
-        }
-        /// <summary>
-        /// DELETE: api/Accounts/UnlinkEvent
-        /// </summary>DELETE: api/Accounts/UnlinkEvent
-        /// Unlinks an event from an account and removes the associated ticket
-        /// <param name="accountId"></param>
-        /// <param name="eventId"></param>
-        /// <returns></returns>
-
-        [HttpDelete("UnlinkEvent")]
-        public async Task<IActionResult> UnlinkEvent(int accountId, int eventId)
-        {
-            var account = await _context.Accounts
-                .Include(a => a.Events)
-                .FirstOrDefaultAsync(a => a.AccountId == accountId);
-            if (account == null)
-            {
-                return NotFound();
-            }
-
-            var eventEntity = account.Events.FirstOrDefault(e => e.EventId == eventId);
-            if (eventEntity == null)
-            {
-                return NotFound();
-            }
-
-            account.Events.Remove(eventEntity);
-
-            // Remove the ticket for the account and event
-            var ticket = await _context.Tickets
-                .FirstOrDefaultAsync(t => t.AccountId == accountId && t.EventId == eventId);
-            if (ticket != null)
-            {
-                _context.Tickets.Remove(ticket);
-            }
-
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-        /// <summary>
-        /// Checks if an account exists by ID
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">The ID of the account.</param>
+        /// <returns>Returns true if the account exists, false otherwise.</returns>
         private bool AccountExists(int id)
         {
             return _context.Accounts.Any(e => e.AccountId == id);
