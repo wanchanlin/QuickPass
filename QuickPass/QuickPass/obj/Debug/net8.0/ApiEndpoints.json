@@ -21,15 +21,15 @@
   },
   {
     "ContainingType": "QuickPass.Controllers.AccountsController",
-    "Method": "PostAccount",
+    "Method": "CreateAccount",
     "RelativePath": "api/Accounts",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "account",
-        "Type": "QuickPass.Models.Account",
+        "Name": "accountDto",
+        "Type": "QuickPass.Models.AccountDTO",
         "IsRequired": true
       }
     ],
@@ -118,7 +118,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[QuickPass.Models.Account, QuickPass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[QuickPass.Models.AccountDTO, QuickPass, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -127,6 +127,27 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "QuickPass.Controllers.AccountsController",
+    "Method": "UpdateAccount",
+    "RelativePath": "api/Accounts/Update/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "accountDto",
+        "Type": "QuickPass.Models.AccountDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "QuickPass.Controllers.EventsController",
@@ -224,7 +245,7 @@
   {
     "ContainingType": "QuickPass.Controllers.EventsController",
     "Method": "DeleteEvent",
-    "RelativePath": "api/Events/{id}",
+    "RelativePath": "api/Events/id/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,

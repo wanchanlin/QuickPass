@@ -1,0 +1,57 @@
+﻿@model QuickPass.Models.ViewModels.AccountDetails
+
+@{
+    ViewData["Title"] = "Account Details";
+}
+
+<h1>Account Details</h1>
+
+<div>
+    <h4>Account</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Account.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Account.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Account.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Account.Email)
+        </dd>
+        <dt class="col-sm-2">
+            Associated Tickets:
+        </dt>
+        <dd class="col-sm-10">
+            <ul>
+                @if (Model.AccountTickets != null && Model.AccountTickets.Any())
+                {
+                    @foreach (var ticket in Model.AccountTickets)
+                    {
+                        <li>
+                            @ticket.SeatNumber
+                            (Price: @ticket.Price.ToString("C"), Booked: @ticket.BookingDate.ToString("d"))
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li>No tickets available.</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Account.AccountId" class="btn btn-primary">Edit</a>
+    <a asp-action="List" class="btn btn-secondary">Back to List</a>
+</div>

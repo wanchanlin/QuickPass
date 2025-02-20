@@ -30,6 +30,30 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Humber College/QuickPass/QuickPass/QuickPass/Views/AccountPage/ConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcQ29uZmlybURlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Humber College/QuickPass/QuickPass/QuickPass/Views/AccountPage/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Humber College/QuickPass/QuickPass/QuickPass/Views/AccountPage/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Humber College/QuickPass/QuickPass/QuickPass/Views/AccountPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Humber College/QuickPass/QuickPass/QuickPass/Views/AccountPage/New.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFBhZ2VcTmV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Humber College/QuickPass/QuickPass/QuickPass/Views/EventPage/List.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRQYWdlXExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Humber College/QuickPass/QuickPass/QuickPass/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

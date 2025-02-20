@@ -1,0 +1,36 @@
+﻿@model IEnumerable<QuickPass.Models.Account>
+
+@{
+    ViewData["Title"] = "Account List";
+}
+
+<a asp-action="New">Create Account</a>
+<h1>Account List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Account ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.AccountId</td>
+                <td>@account.FirstName</td>
+                <td>@account.LastName</td>
+                <td>@account.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@account.AccountId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@account.AccountId">Details</a> |
+                    <a asp-action="ConfirmDelete" asp-route-id="@account.AccountId">Delete</a>
+                </td>
+            </tr>
+        
+        }
+    </tbody>
+</table>

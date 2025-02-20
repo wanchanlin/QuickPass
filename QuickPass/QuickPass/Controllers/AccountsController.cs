@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuickPass.Data;
 using QuickPass.Models;
@@ -56,6 +51,37 @@ namespace QuickPass.Controllers
 
             return Ok(account);
         }
+        /// <summary>
+        /// Creates a new account.
+        /// </summary>
+        /// <param name="accountDto">The account object to be created.</param>
+        /// <returns>Returns the created account with a 201 Created status.</returns>
+        /// <response code="201">Account created successfully.</response>
+        /// <response code="400">Bad request, invalid input.</response>
+        /// <example>POST: api/accounts</example>
+        [HttpPost]
+        public async Task<ActionResult<Account>> CreateAccount(AccountDTO accountDto) // Use DTO
+        {
+            if (!ModelState.IsValid) // Validate model
+            {
+                return BadRequest(ModelState);
+            }
+
+            // Map DTO to Account entity
+            var newAccount = new Account
+            {
+                FirstName = accountDto.FirstName,
+                LastName = accountDto.LastName,
+                Email = accountDto.Email,
+                Password = accountDto.Password // Ensure DTO includes this
+            };
+
+            _context.Accounts.Add(newAccount);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetAccount), new { id = newAccount.AccountId }, newAccount);
+        }
+
 
         /// <summary>
         /// Retrieves a list of accounts with their related ticket details.
@@ -63,26 +89,26 @@ namespace QuickPass.Controllers
         /// <returns>A list of accounts including ticket information.</returns>
         /// <response code="200">Returns a list of accounts with ticket details.</response>
         /// <example>GET: api/accounts/DTO</example>
-        [HttpGet(template: "DTO")]
-        public async Task<ActionResult<IEnumerable<Account>>> GetAccountsDTO()
+        [HttpGet("DTO")]
+        public async Task<ActionResult<IEnumerable<AccountDTO>>> GetAccountsDTO()
         {
             var accounts = await _context.Accounts
                 .Include(a => a.Tickets)
-                .ThenInclude(t => t.Event)
+                .AsNoTracking()
                 .ToListAsync();
 
-            if (accounts == null || !accounts.Any())
+            if (!accounts.Any())
             {
                 return NotFound("No accounts found.");
             }
 
-            var accountDtos = accounts.Select(account => new Account
+            var accountDtos = accounts.Select(account => new AccountDTO
             {
                 AccountId = account.AccountId,
                 FirstName = account.FirstName,
                 LastName = account.LastName,
                 Email = account.Email,
-                Tickets = account.Tickets.Select(ticket => new Ticket
+                Tickets = account.Tickets.Select(ticket => new TicketDTO
                 {
                     TicketId = ticket.TicketId,
                     Price = ticket.Price,
@@ -142,18 +168,59 @@ namespace QuickPass.Controllers
         /// <response code="201">Account created successfully.</response>
         /// <response code="400">Bad request, invalid input.</response>
         /// <example>POST: api/accounts</example>
-        [HttpPost]
-        public async Task<ActionResult<Account>> PostAccount(Account account)
+
+        //[HttpPost]
+        //public async Task<ActionResult<Account>> PostAccount(Account account)
+        //{
+        //    if (account == null)
+        //    {
+        //        return BadRequest("Invalid account data.");
+        //    }
+
+        //    // Ensure tickets reference the correct account
+        //    if (account.Tickets != null)
+        //    {
+        //        foreach (var ticket in account.Tickets)
+        //        {
+        //            ticket.AccountId = account.AccountId; // ✅ Ensure AccountId is set
+        //        }
+        //    }
+
+        //    _context.Accounts.Add(account);
+        //    await _context.SaveChangesAsync();
+
+        //    return CreatedAtAction(nameof(GetAccount), new { id = account.AccountId }, account);
+        //}[HttpPut("Update/{id}")]
+        [HttpPut("Update/{id}")]
+        public async Task<IActionResult> UpdateAccount(int id, AccountDTO accountDto) // Use DTO
         {
-            if (account == null)
+            try
             {
-                return BadRequest("Invalid account data.");
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                if (id != accountDto.AccountId)
+                    return BadRequest("Account ID mismatch.");
+
+                var existingAccount = await _context.Accounts.FindAsync(id);
+                if (existingAccount == null)
+                    return NotFound("Account not found.");
+
+                // Map DTO to existing entity
+                existingAccount.FirstName = accountDto.FirstName;
+                existingAccount.LastName = accountDto.LastName;
+                existingAccount.Email = accountDto.Email;
+                existingAccount.Password = accountDto.Password;
+
+                await _context.SaveChangesAsync();
+                return NoContent();
             }
-
-            _context.Accounts.Add(account);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetAccount", new { id = account.AccountId }, account);
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
         }
 
         /// <summary>

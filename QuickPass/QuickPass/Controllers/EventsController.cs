@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuickPass.Data;
@@ -125,8 +121,8 @@ namespace QuickPass.Controllers
         /// <returns>Returns 204 No Content if successful, or 404 Not Found if the event does not exist.</returns>
         /// <response code="204">Event deleted successfully.</response>
         /// <response code="404">Event not found.</response>
-        /// <example>DELETE: api/events/5</example>
-        [HttpDelete("{id}")]
+        /// <example>DELETE: api/events/id/5</example>
+        [HttpDelete("id/{id}")]
         public async Task<IActionResult> DeleteEvent(int id)
         {
             var @event = await _context.Events.FindAsync(id);
