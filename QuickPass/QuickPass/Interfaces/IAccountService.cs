@@ -1,7 +1,6 @@
-﻿using QuickPass.Controllers;
+﻿using QuickPass.Models.ViewModels;
 using QuickPass.Models;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+
 
 namespace QuickPass.Interfaces
 {

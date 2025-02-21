@@ -4,33 +4,40 @@
     ViewData["Title"] = "Account List";
 }
 
-<a asp-action="New">Create Account</a>
-<h1>Account List</h1>
+<div class="container mt-4">
+    <h1>@ViewData["Title"]</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Account ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var account in Model)
-        {
+    <!-- Create Account Button -->
+    <div class="mb-3">
+        <a class="btn btn-primary" asp-action="New">Create Account</a>
+    </div>
+
+    <!-- Account Table -->
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
             <tr>
-                <td>@account.AccountId</td>
-                <td>@account.FirstName</td>
-                <td>@account.LastName</td>
-                <td>@account.Email</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@account.AccountId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@account.AccountId">Details</a> |
-                    <a asp-action="ConfirmDelete" asp-route-id="@account.AccountId">Delete</a>
-                </td>
+                <th>Account ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Actions</th>
             </tr>
-        
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var account in Model)
+            {
+                <tr>
+                    <td>@account.AccountId</td>
+                    <td>@account.FirstName</td>
+                    <td>@account.LastName</td>
+                    <td>@account.Email</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@account.AccountId">Edit</a>
+                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@account.AccountId">Details</a>
+                        <a class="btn btn-danger btn-sm" asp-action="ConfirmDelete" asp-route-id="@account.AccountId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
