@@ -2,7 +2,39 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero">
+    <h1>Buy Tickets Instantly with QuickPass</h1>
+    <p>Find and purchase tickets for your favorite events in seconds.</p>
+    <a href="#events" class="btn">Browse Events</a>
+</section>
+
+<section id="events" class="events">
+    <h2>Upcoming Events</h2>
+    <div class="event-list">
+        <div class="event">
+            <img src="images/blank-featured-image.jpg" alt="Alternate Text" />
+            <h3>Concert Night</h3>
+            <p>Experience an unforgettable night of live music.</p>
+            <button>Buy Tickets</button>
+        </div>
+        <div class="event">
+            <img src="images/blank-featured-image.jpg" alt="Alternate Text" />
+
+            <h3>Sports Championship</h3>
+            <p>Cheer for your favorite team in the finals.</p>
+            <button>Buy Tickets</button>
+        </div>
+        <div class="event">
+            <img src="images/blank-featured-image.jpg" alt="Alternate Text" />
+            <h3>Theatre Play</h3>
+            <p>Enjoy an award-winning stage performance.</p>
+            <button>Buy Tickets</button>
+        </div>
+    </div>
+</section>
+
+
+@* <div class="text-center"> *@
+@*     <h1 class="display-4">Welcome</h1> *@
+@*     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+@* </div> *@

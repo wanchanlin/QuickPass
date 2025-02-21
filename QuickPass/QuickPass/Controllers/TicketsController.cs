@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using QuickPass.Data;
@@ -112,11 +108,16 @@ namespace QuickPass.Controllers
                 return BadRequest("Invalid ticket data.");
             }
 
+            // Set navigation properties to null to prevent validation errors
+            ticket.Event = null;
+            ticket.Account = null;
+
             _context.Tickets.Add(ticket);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetTicket", new { id = ticket.TicketId }, ticket);
         }
+
 
         /// <summary>
         /// Deletes a specific ticket by ID.

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Q1C/OyTebYQ9Fs+AL/euJLnsPzaatNauvZhkQJDf7K8=",
+  "Hash": "qO4TAvoxTkAb/vgjhEKB//Ljgn0VcuwAH8Tna8I6Pxc=",
   "Source": "QuickPass",
   "BasePath": "_content/QuickPass",
   "Mode": "Default",
@@ -1231,6 +1231,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\wwwroot\\images\\blank-featured-image.jpg",
+      "SourceId": "QuickPass",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\wwwroot\\",
+      "BasePath": "_content/QuickPass",
+      "RelativePath": "images/blank-featured-image.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\blank-featured-image.jpg"
     },
     {
       "Identity": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\wwwroot\\js\\site.js",

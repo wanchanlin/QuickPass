@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\wwwroot\\images\\blank-featured-image.jpg",
+      "PackagePath": "staticwebassets\\images\\blank-featured-image.jpg"
+    },
+    {
       "Id": "D:\\Humber College\\QuickPass\\QuickPass\\QuickPass\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

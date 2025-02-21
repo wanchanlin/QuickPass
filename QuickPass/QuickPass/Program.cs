@@ -2,7 +2,9 @@
 using Microsoft.EntityFrameworkCore;
 
 using QuickPass.Data;
-using QuickPass.Controllers;
+using QuickPass.Interfaces;
+using QuickPass.Services;
+using CoreEntityFramework.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,10 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+
+//Associate service interfaces with their implementations
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IEventService, EventService>();
 
 builder.Services.AddEndpointsApiExplorer();
 
@@ -52,6 +58,7 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
+   
 
 //app.MapAccountEndpoints();
 
