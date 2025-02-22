@@ -156,46 +156,42 @@ namespace QuickPass.Controllers
             return View(account);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int accountId) // Match parameter name
         {
-            ServiceResponse response = await _accountService.DeleteAccount(id);
+            var response = await _accountService.DeleteAccount(accountId);
             if (response.Status == ServiceResponse.ServiceStatus.Deleted)
             {
                 return RedirectToAction("List");
             }
-            else
+            return View("Error", new ErrorViewModel
             {
-                var errorModel = new QuickPass.Models.ViewModels.ErrorViewModel
-                {
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
-                    //ShowRequestId = !string.IsNullOrEmpty(Activity.Current?.Id)
-                };
-                ViewBag.ErrorMessage = response.Messages.FirstOrDefault();
-                return View("Error", errorModel);
-            }
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                //ErrorMessage = response.Messages.FirstOrDefault()
+            });
         }
-
         //[HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Delete(int id)
-        // {
-        //     ServiceResponse response = await _accountService.DeleteAccount(id);
-        //     if (response.Status == ServiceResponse.ServiceStatus.Deleted)
-        //     {
-        //         return RedirectToAction("List");
-        //     }
-        //     else
-        //     {
-        //         var errorModel = new QuickPass.Models.ViewModels.ErrorViewModel
-        //         {
-        //             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-        //         };
-        //         ViewBag.ErrorMessage = response.Messages.FirstOrDefault();
-        //         return View("Error", errorModel);
-        //     }
-        // }
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Delete(int id)
+        //{
+        //    ServiceResponse response = await _accountService.DeleteAccount(id);
+        //    if (response.Status == ServiceResponse.ServiceStatus.Deleted)
+        //    {
+        //        return RedirectToAction("List");
+        //    }
+        //    else
+        //    {
+        //        var errorModel = new QuickPass.Models.ViewModels.ErrorViewModel
+        //        {
+        //            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+        //            //ShowRequestId = !string.IsNullOrEmpty(Activity.Current?.Id)
+        //        };
+        //        ViewBag.ErrorMessage = response.Messages.FirstOrDefault();
+        //        return View("Error", errorModel);
+        //    }
+        //}
+
+
     }
 }
