@@ -40,8 +40,8 @@ namespace QuickPass.Controllers
             return View(@event);
         }
 
-        // GET: EventsPage/Create
-        //[Authorize]
+        //GET: EventsPage/Create
+       [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -65,7 +65,7 @@ namespace QuickPass.Controllers
             return View(@event);
         }
 
-        // GET: EventsPage/Edit/5
+        // GET: EventsPage/Edit/
         [Authorize]
         public async Task<IActionResult> Edit(int id)
         {

@@ -160,39 +160,9 @@ namespace QuickPass.Controllers
             return NoContent();
         }
 
-        /// <summary>
-        /// Creates a new account.
-        /// </summary>
-        /// <param name="account">The account object to be created.</param>
-        /// <returns>Returns the created account with a 201 Created status.</returns>
-        /// <response code="201">Account created successfully.</response>
-        /// <response code="400">Bad request, invalid input.</response>
-        /// <example>POST: api/accounts</example>
-
-        //[HttpPost]
-        //public async Task<ActionResult<Account>> PostAccount(Account account)
-        //{
-        //    if (account == null)
-        //    {
-        //        return BadRequest("Invalid account data.");
-        //    }
-
-        //    // Ensure tickets reference the correct account
-        //    if (account.Tickets != null)
-        //    {
-        //        foreach (var ticket in account.Tickets)
-        //        {
-        //            ticket.AccountId = account.AccountId; // ✅ Ensure AccountId is set
-        //        }
-        //    }
-
-        //    _context.Accounts.Add(account);
-        //    await _context.SaveChangesAsync();
-
-        //    return CreatedAtAction(nameof(GetAccount), new { id = account.AccountId }, account);
-        //}[HttpPut("Update/{id}")]
+       
         [HttpPut("Update/{id}")]
-        public async Task<IActionResult> UpdateAccount(int id, AccountDTO accountDto) // Use DTO
+        public async Task<IActionResult> UpdateAccount(int id, AccountDTO accountDto) 
         {
             try
             {

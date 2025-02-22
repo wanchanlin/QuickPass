@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using QuickPass.Interfaces;
 using QuickPass.Models;
 using QuickPass.Models.ViewModels;
@@ -118,33 +120,77 @@ namespace QuickPass.Controllers
                 return View();
             }
         }
-
-        // GET: AccountPageController1/Edit/5
-        public ActionResult Edit(int id)
+        [Authorize]
+        // GET: AccountPageController1/Edit/id
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            // Use the service instead of direct context access
+            var account = await _accountService.GetAccount(id.Value);
+
+            if (account == null)
+            {
+                return NotFound();
+            }
+
+            return View(account);
         }
 
-        // POST: AccountPageController1/Edit/5
+
+        // POST: AccountPageController1/Edit/id
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("AccountId,FirstName,LastName,Email,Password")] Account account)
         {
-            try
+            if (id != account.AccountId)
             {
-                return RedirectToAction(nameof(Index));
+                return NotFound();
             }
-            catch
+
+            if (ModelState.IsValid)
             {
-                return View();
+                try
+                {
+                    // Use the service to update
+                    var response = await _accountService.UpdateAccount(account);
+
+                    if (response.Status == ServiceResponse.ServiceStatus.Updated)
+                    {
+                        return RedirectToAction(nameof(List));
+                    }
+                    else
+                    {
+                        return View("Error");
+                    }
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!await AccountExists(account.AccountId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
             }
+            return View(account);
         }
 
+        private async Task<bool> AccountExists(int id)
+        {
+            // Implement this check through your service
+            var account = await _accountService.GetAccount(id);
+            return account != null;
+        }
         //// GET: AccountPageController1/ConfirmDelete
-        //public ActionResult ConfirmDelete(int id)
-        //{
-        //    return View();
-        //}
+
 
         public async Task<IActionResult> ConfirmDelete(int id)
         {
@@ -155,47 +201,23 @@ namespace QuickPass.Controllers
             }
             return View(account);
         }
-
-
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(int accountId) // Match parameter name
         {
-            ServiceResponse response = await _accountService.DeleteAccount(id);
+            var response = await _accountService.DeleteAccount(accountId);
             if (response.Status == ServiceResponse.ServiceStatus.Deleted)
             {
                 return RedirectToAction("List");
             }
-            else
+            return View("Error", new ErrorViewModel
             {
-                var errorModel = new QuickPass.Models.ViewModels.ErrorViewModel
-                {
-                    RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
-                    //ShowRequestId = !string.IsNullOrEmpty(Activity.Current?.Id)
-                };
-                ViewBag.ErrorMessage = response.Messages.FirstOrDefault();
-                return View("Error", errorModel);
-            }
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier,
+                //ErrorMessage = response.Messages.FirstOrDefault()
+            });
         }
 
-        //[HttpPost]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> Delete(int id)
-        // {
-        //     ServiceResponse response = await _accountService.DeleteAccount(id);
-        //     if (response.Status == ServiceResponse.ServiceStatus.Deleted)
-        //     {
-        //         return RedirectToAction("List");
-        //     }
-        //     else
-        //     {
-        //         var errorModel = new QuickPass.Models.ViewModels.ErrorViewModel
-        //         {
-        //             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
-        //         };
-        //         ViewBag.ErrorMessage = response.Messages.FirstOrDefault();
-        //         return View("Error", errorModel);
-        //     }
-        // }
+
     }
 }

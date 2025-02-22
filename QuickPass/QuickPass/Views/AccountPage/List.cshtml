@@ -32,9 +32,9 @@
                     <td>@account.LastName</td>
                     <td>@account.Email</td>
                     <td>
-                        <a class="btn btn-warning btn-sm" asp-action="Edit" asp-route-id="@account.AccountId">Edit</a>
-                        <a class="btn btn-info btn-sm" asp-action="Details" asp-route-id="@account.AccountId">Details</a>
-                        <a class="btn btn-danger btn-sm" asp-action="ConfirmDelete" asp-route-id="@account.AccountId">Delete</a>
+                        <a asp-action="Edit" asp-route-id="@account.AccountId">Edit</a>
+                        <a asp-action="Details" asp-route-id="@account.AccountId">Details</a>
+                        <a  asp-action="ConfirmDelete" asp-route-id="@account.AccountId">Delete</a>
                     </td>
                 </tr>
             }

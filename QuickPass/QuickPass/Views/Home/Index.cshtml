@@ -1,11 +1,12 @@
-﻿@{
+﻿@model QuickPass.Models.Event
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <section class="hero">
     <h1>Buy Tickets Instantly with QuickPass</h1>
     <p>Find and purchase tickets for your favorite events in seconds.</p>
-    <a href="#events" class="btn">Browse Events</a>
+    <a href="/EventPage/List" class="CTAbtn">Browse Events</a>
 </section>
 
 <section id="events" class="events">
@@ -13,22 +14,22 @@
     <div class="event-list">
         <div class="event">
             <img src="images/blank-featured-image.jpg" alt="Alternate Text" />
-            <h3>Concert Night</h3>
-            <p>Experience an unforgettable night of live music.</p>
-            <button>Buy Tickets</button>
+            <h3>Ricky Martin</h3>
+            <p>	Enrique Martin Morales is a Puerto Rican singer, songwriter and actor....</p>
+            <a class="CTAbtn" href="EventPage/Details/1">Buy Tickets</a>
         </div>
         <div class="event">
             <img src="images/blank-featured-image.jpg" alt="Alternate Text" />
 
-            <h3>Sports Championship</h3>
-            <p>Cheer for your favorite team in the finals.</p>
-            <button>Buy Tickets</button>
+            <h3>Shawn Mendes</h3>
+            <p>Concert for the show</p>
+            <a class="CTAbtn" href="EventPage/Details/2">Buy Tickets</a>
         </div>
         <div class="event">
             <img src="images/blank-featured-image.jpg" alt="Alternate Text" />
-            <h3>Theatre Play</h3>
-            <p>Enjoy an award-winning stage performance.</p>
-            <button>Buy Tickets</button>
+            <h3>Selena Gomez</h3>
+            <p>Selena Marie Gomez is an American actress, singer, producer, and businesswoman...</p>
+            <a class="CTAbtn" href="EventPage/Details/3">Buy Tickets</a>
         </div>
     </div>
 </section>
